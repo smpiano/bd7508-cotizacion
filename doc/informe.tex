@@ -122,7 +122,15 @@
 
 \begin{enumerate}
 
-  \item 
+  \item El coaseguro y reaseguro serán atributos de la entidad Cobertura, no se entrará en detalle sobre estos casos especiales.
+ 
+  \item La entidad Cotización tendrá los datos sobre el plan de cuotas, y la entidad "débil" Cuotas registrará los datos de cada una.
+ 
+  \item La entidad Rubro abarca todos los tipos de rubros, no se usará herencia para poner los distintos tipos por simpleza del diagrama, por lo tanto, se sobreentiende que debería existir una entidad por cada tipo distinto de rubro pero se obviarán.
+ 
+  \item La entidad Inspección es "débil" de cotizacción, ya que cada cotización tendrá inspeccionar con nroInspeccion 1, 2, 3, etc..
+ 
+  \item La entidad Sucursal posee el dato de todas las sucursales y la Casa central inclusive.
   
 \end{enumerate}
 
@@ -135,25 +143,25 @@
 
 \begin{figure}[h!t]
   \centering
-  \includegraphics[width=1.5\textwidth, angle=90]{build/images/der.png}
+  \includegraphics[width=1.3\textwidth, angle=0]{build/images/der.png}
   \caption{Diagrama de entidad-interrelación} \label{fig:der}
 \end{figure}
 
 \FloatBarrier
 
 
-\subsection{Restricciones adicionales}
+%\subsection{Restricciones adicionales}
 
 % Las siguientes restricciones adicionales se detallan a continuación por
 % pertenecer al modelo de entidad-interrelación. No están representadas en el
 % diagrama dado que su inclusión agregaba complejidad adicional sobre en la
 % figura que consideramos innecesaria.
 
-\begin{enumerate}
+%\begin{enumerate}
 
-  \item 
+%  \item 
   
-\end{enumerate}
+%\end{enumerate}
 
 \section{Diccionario de datos}
 
@@ -174,28 +182,30 @@ a sus distintos vehículos.
   
 \end{itemize}
 
-\subsection{Cotizacion}
+\subsection{Cotización}
 
 Representa las distintas formas de asegurar un vehículo que  que los clientes recibirán para poder asegurar
 un vehículo.
 
 \begin{itemize}
 
-  \item \textbf{\uline{IdCotizacion}} Número único e identificatorio de cada cotización.
+  \item \textbf{\uline{NroCotizacion}} Número único e identificatorio de cada cotización.
   
   \item \textbf{TipoVehiculo} Almacena el tipo de vehículo para el cual la cotización ha sido generada.
 
   \item \textbf{FechaExpiracion} Fecha en la cual deja de tener validez ésta cotización.
-    
+  
+  \item \textbf{CantCuota} Cantidad de cuotas.
+
+  \item \textbf{FechaCotizacion} Fecha en la cual se ha realizado la cotización.
+      
 \end{itemize}
 
-\subsection{Plan de pago}
+\subsection{Cuota}
 
-Indica la forma en la que se deberá efectuar los pagos de las distintas cotizaciones.
+Indica las distintas cuotas que se deben pagar para la cotización en caso de contratarla.
 
 \begin{itemize}
-
-  \item \textbf{\dashuline{IdPlan}} Número que identifica cada plan de pago.
 
   \item \textbf{\dashuline{NroCuota}} Número de cuota del pago.
     
@@ -203,10 +213,8 @@ Indica la forma en la que se deberá efectuar los pagos de las distintas cotizac
   
   \item \textbf{Monto} Suma de dinero que se deberá pagar en una determinada cuota.
 
-  \item \textbf{FechaVencimiento} Fecha hasta la cual se puede realizar el pago.
-  
-  \item \textbf{CantCuota} Cantidad de cuotas.
-    
+  \item \textbf{FechaVencimiento} Fecha hasta la cual dse puede realizar el pago.
+
 \end{itemize}
 
 \subsection{Póliza}
@@ -225,7 +233,7 @@ Las distintas sucursales en las que los clientes podrán solicitar cotizaciones 
 
 \begin{itemize}
    
-  \item \textbf{\uline{IdSucursal}} Número que identifica a una sucursal.
+  \item \textbf{\uline{NroSucursal}} Número que identifica a una sucursal.
   
   \item \textbf{Nombre} Nombre de la sucursal.
   
@@ -254,7 +262,7 @@ Representa los distintos puestos de trabajo en el que un empleado puede trabajar
 
 \begin{itemize}
    
-  \item \textbf{\uline{IdRol}} Número identificatorio de cada rol.
+  \item \textbf{\uline{NroRol}} Número identificatorio de cada rol.
   
   \item \textbf{Nombre} Nombre descriptivo del rol.
   
@@ -283,17 +291,19 @@ la aprobación o no de las cotizaciones.
 
 \subsection{Inspección}
 
-Las distintas visitas al vehículo de los inspectores para la 
-aprobación de las cotizaciones
+Representa las distintas inspecciones que los inspectores realizarán para aprobar o no las cotizaciones.
+Cada inspección conecta a una cotización con el inspector que la inspeccionó.
 
 \begin{itemize}
    
-  \item \textbf{\dashuline{IdInspeccion}} Número identificatorio de cada inspección.
+  \item \textbf{\uline{NroInspeccion}} Número de inspección que realiza un inspector dado a una cotización.
   
-  \item \textbf{Aprobado} Guarda si fue aprobada la cotización.
-  
-  \item \textbf{Descripcion} Almacena el por qué de la aprobación o no de la cotización.
-  
+  \item \textbf{\dashuline{IdCotizacion}} Id de la cotización para la que se realiza dicha inspección.
+    
+  \item \textbf{Descripcion} Mensaje indicando las observaciones de la inspección.
+
+  \item \textbf{Aprobado} Indica si fue aprobada la cotización.
+    
 \end{itemize}
 
 \subsection{Zona}
@@ -307,6 +317,22 @@ Son las distintas zonas que cubrirán los ejecutivos de cuenta.
   \item \textbf{Nombre} Nombre descriptivo de la zona.
   
 \end{itemize}
+
+\subsection{Rubro}
+
+Representa las distintas categorías a la cual una cotización puede pertenecer.
+
+\begin{itemize}
+   
+  \item \textbf{\uline{NroRubro}} Número identificatorio de cada rubro.
+  
+  \item \textbf{Nombre} Nombre del rubro.
+
+  \item \textbf{Descripcion} Texto descriptivo del rubro.
+  
+\end{itemize}
+
+\clearpage
 
 \section{Modelo relacional}
 
