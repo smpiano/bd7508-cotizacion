@@ -64,16 +64,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Título principal del documento.
-\title{\textbf{Trabajo Práctico: Hiposoft}}
+\title{\textbf{Trabajo Práctico: Cotizador de pólizas}}
 
 % Información sobre los autores.
 \author{
-  Gabriel Jaimerena,      \textit{P. XX.XXX}                      \\
-  Lorena Kalaydjian,     \textit{P. XX.XXX}                      \\
+  Gabriel Jaimerena,      \textit{P. 83.375}                      \\
+  Lorena Kalaydjian,     \textit{P. 81.925}                      \\
   Sergio Matías Piano,     \textit{P. 85.191}                      \\
   Javier Daniel Zaniratto, \textit{P. 90.886}                      \\
   \\
-  \normalsize{1do. Cuatrimestre de 2013}                           \\
+  \normalsize{2do. Cuatrimestre de 2013}                           \\
   \normalsize{75.15 - Bases de datos}                              \\
   \normalsize{Facultad de Ingeniería, Universidad de Buenos Aires}
 }
@@ -121,16 +121,30 @@
 \subsection{Hipótesis}
 
 \begin{enumerate}
+ 
+	\item La entidad Inspección es "débil" de cotizacción, ya que cada cotización tendrá inspeccionar con nroInspeccion 1, 2, 3, etc..
+ 
+	\item La entidad Sucursal posee el dato de todas las sucursales y la Casa central inclusive.
 
-  \item El coaseguro y reaseguro serán atributos de la entidad Cobertura, no se entrará en detalle sobre estos casos especiales.
+	\item Se asume que el cliente que solicita la cotización y es aprobada es titular del vehículo
+	
+	\item El vehículo a ser asegurado tiene la VTV vigente.
+
+	\item El re-aseguro y co-aseguro, atributos de la cobertura indican que fue revisado por las entidades correspondientes (nacional o bien extranjera) y que la cobertura contempla la modificación.
+
+	\item La casa central esta contemplada dentro de las sucursales.
+
+	\item La tasa fija de las cuotas está considerada dentro del monto.
+
+	\item Puede haber sucursales que aún no hayan podido generar una cotización.
+
+	\item Los ejecutivos de cuenta de la casa central pueden tener que analizar o no la solicitud de cotización.  
+
+	\item La entidad Cotización tendrá los datos sobre el plan de cuotas, y la entidad débil Cuotas registrará los datos de cada una.
  
-  \item La entidad Cotización tendrá los datos sobre el plan de cuotas, y la entidad "débil" Cuotas registrará los datos de cada una.
- 
-  \item La entidad Rubro abarca todos los tipos de rubros, no se usará herencia para poner los distintos tipos por simpleza del diagrama, por lo tanto, se sobreentiende que debería existir una entidad por cada tipo distinto de rubro pero se obviarán.
- 
-  \item La entidad Inspección es "débil" de cotizacción, ya que cada cotización tendrá inspeccionar con nroInspeccion 1, 2, 3, etc..
- 
-  \item La entidad Sucursal posee el dato de todas las sucursales y la Casa central inclusive.
+	\item La entidad Rubro abarca todos los tipos de rubros, no se usará herencia para poner los distintos tipos por simpleza del diagrama, por lo tanto, se sobreentiende que debería existir una entidad por cada tipo distinto de rubro pero se obviarán.
+	
+	\item El productor se seguros calcula la prima y monto de la solicitud de cobertura utilizando una planilla excel o un cotizador online que está disponible solo para los productores y empleados de la compañía.
   
 \end{enumerate}
 
@@ -143,7 +157,7 @@
 
 \begin{figure}[h!t]
   \centering
-  \includegraphics[width=1.3\textwidth, angle=0]{build/images/der.png}
+  \includegraphics[width=1.6\textwidth, angle=90]{build/images/der.jpeg}
   \caption{Diagrama de entidad-interrelación} \label{fig:der}
 \end{figure}
 
@@ -332,20 +346,319 @@ Representa las distintas categorías a la cual una cotización puede pertenecer.
   
 \end{itemize}
 
-\clearpage
+\subsection{Cobertura}
+
+Son los riesgos que están cubiertos en una póliza según el rubro que corresponda.
+
+\begin{itemize}
+   
+  \item \textbf{NroCobertura} Número identificatorio de cada cobertura.
+  
+  \item \textbf{Nombre} Nombre de la cobertura.
+
+  \item \textbf{Descripcion} Texto descriptivo de la cobertura.
+  
+  \item \textbf{Reaseguro} Nombre de la compañía extranjera reaseguradora
+
+  \item \textbf{Coaseguro} Almacena si la cobertura tiene coaseguro con la empresa Aliance S.A.
+  
+\end{itemize}
 
 \section{Modelo relacional}
 
+\subsection{Claves candidatas}
+
+\subsubsection{Cuotas}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroCuota, nroCotizacion, fechaVencimiento, Monto
+
+	\item \textbf{Clave Primaria:} nroCuota, nroCotizacion
+
+	\item \textbf{Claves Foráneas:} nroCotizacion
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Cliente}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} DNI, Apellido, Nombre, Domicilio
+
+	\item \textbf{Clave Primaria:} DNI
+
+	\item \textbf{Claves Foráneas:} -
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Póliza}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroPoliza, nroCotizacion, DNI, fechaEmision, fechaVigencia
+
+	\item \textbf{Clave Primaria:} nroPoliza
+
+	\item \textbf{Claves Foráneas:} nroCotizacion y DNI
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Posee cobertura}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroPoliza, nroCotizacion
+
+	\item \textbf{Clave Primaria:} nroPoliza, nroCotizacion
+	
+	\item \textbf{Claves Foráneas:} nroPoliza, nroCotizacion
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Cobertura}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroCobertura, Nombre, Reaseguro, Coseguro, Descripcion
+
+	\item \textbf{Clave Primaria:} nroCobertura
+	
+	\item \textbf{Claves Foráneas:} -
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Cubre}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroRubro, nroCobertura
+
+	\item \textbf{Clave Primaria:} nroRubro, nroCobertura
+	
+	\item \textbf{Claves Foráneas:} nroRubro, nroCobertura
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+
+\subsubsection{Cotización}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroCotizacion, tipoVehiculo, cantCuotas, fechaCotizacion, fechaExpiracion, DNI, nroRubro, NroRol, nroSucursal, Aprobacion
+	
+	\item \textbf{Clave Primaria:} nroCotizacion
+	
+	\item \textbf{Claves Foráneas:} DNI, nroRubro, nroRol y nroSucursal
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Rubro}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroRubro, Nombre, Descripcion
+	
+	\item \textbf{Clave Primaria:} nroRubro
+	
+	\item \textbf{Claves Foráneas:} -
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Analiza cotización}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroCotizacion, NroRol
+	
+	\item \textbf{Clave Primaria:} nroCotizacion
+	
+	\item \textbf{Claves Foráneas:} nroCotizacion y NroRol
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Inspección}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroInspeccion, Aprobado, Descripcion, NroRol, FechaInspeccion, nroCotizacion
+	
+	\item \textbf{Clave Primaria:} nroInspeccion, nroCotizacion
+	
+	\item \textbf{Claves Foráneas:} NroRol y nroCotizacion
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Zona}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} NroZona, Nombre
+	
+	\item \textbf{Clave Primaria:} NroZona
+	
+	\item \textbf{Claves Foráneas:} -
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Sucursal}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroSucursal, Nombre
+	
+	\item \textbf{Clave Primaria:} nroSucursal
+	
+	\item \textbf{Claves Foráneas:} -
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Empleado}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} Legajo, DNI, Apellido, Nombre, nroSucursal, NroRol
+	
+	\item \textbf{Clave Primaria:} Legajo
+	
+	\item \textbf{Claves Foráneas:} DNI, nroSucursal, NroRol
+
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Autoriza cotización}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} nroCotizacion, NroRol
+	
+	\item \textbf{Clave Primaria:} nroCotizacion
+	
+	\item \textbf{Claves Foráneas:} nroCotizacion, NroRol
+	
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Rol}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} NroRol
+	
+	\item \textbf{Clave Primaria:} NroRol
+	
+	\item \textbf{Claves Foráneas:} -
+	
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Ejecutivo cuentas}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} NroRol, NroZona
+	
+	\item \textbf{Clave Primaria:} NroRol
+	
+	\item \textbf{Claves Foráneas:} NroRol, NroZona
+	
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Productor}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} NroRol
+	
+	\item \textbf{Clave Primaria:} NroRol
+	
+	\item \textbf{Claves Foráneas:} NroRol
+	
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Mesa entrada}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} NroRol
+	
+	\item \textbf{Clave Primaria:} NroRol
+	
+	\item \textbf{Claves Foráneas:} NroRol
+	
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Gerencia}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} NroRol
+	
+	\item \textbf{Clave Primaria:} NroRol
+	
+	\item \textbf{Claves Foráneas:} NroRol
+	
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
+\subsubsection{Inspector}
+
+\begin{itemize}
+
+	\item \textbf{Atributos:} NroRol
+	
+	\item \textbf{Clave Primaria:} NroRol
+	
+	\item \textbf{Claves Foráneas:} NroRol
+	
+	\item \textbf{Atributos que pueden ser nulos:} -
+	
+\end{itemize}
+
 \subsection{Diagrama relacional}
 
-% En la figura \ref{fig:relacional} se incluye un diagrama representativo del
-% modelo relacional desarrollado para el modelo de entidad-interrelación
-% detallado en la sección \ref{sec:der}.
+ En la figura \ref{fig:relacional} se incluye un diagrama representativo del
+ modelo relacional desarrollado para el modelo de entidad-interrelación
+ detallado en la sección \ref{sec:der}.
 
 \begin{figure}[h!t]
-%  \centering
-%  \includegraphics[width=1.65\textwidth, angle=90]{build/images/rel.png}
-%  \caption{Modelo relacional} \label{fig:relacional}
+	\centering
+	\includegraphics[width=1.3\textwidth, angle=0]{build/images/rel.jpg}
+	\caption{Modelo relacional} \label{fig:relacional}
 \end{figure}
 
 \FloatBarrier
