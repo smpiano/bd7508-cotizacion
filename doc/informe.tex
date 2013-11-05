@@ -4,6 +4,8 @@
 % Paquetes utilizados
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage[margin=0.8in]{geometry}
+
 % Gráficos complejos
 \usepackage{graphicx}
 \usepackage{caption}
@@ -68,13 +70,14 @@
 
 % Información sobre los autores.
 \author{
-  Gabriel Jaimerena,      \textit{P. 83.375}                      \\
-  Lorena Kalaydjian,     \textit{P. 81.925}                      \\
-  Sergio Matías Piano,     \textit{P. 85.191}                      \\
-  Javier Daniel Zaniratto, \textit{P. 90.886}                      \\
+  Gabriel Jaimerena,      \textit{P. 83.375}	\textit{gabrieljaimerena@gmail.com}	            \\
+  Lorena Kalaydjian,     \textit{P. 81.925}		\textit{lorenak@gmail.com}                		\\
+  Sergio Matías Piano,     \textit{P. 85.191}	\textit{smpiano@gmail.com}                  	\\
+  Javier Daniel Zaniratto, \textit{P. 90.886}	\textit{jzaniratto@fi.uba.ar}                   \\
   \\
-  \normalsize{2do. Cuatrimestre de 2013}                           \\
-  \normalsize{75.15 - Bases de datos}                              \\
+  \normalsize{Grupo 16}                        			  			\\
+  \normalsize{2do. Cuatrimestre de 2013}                           	\\
+  \normalsize{75.15 - Bases de datos}                              	\\
   \normalsize{Facultad de Ingeniería, Universidad de Buenos Aires}
 }
 \date{}
@@ -157,7 +160,7 @@
 
 \begin{figure}[h!t]
   \centering
-  \includegraphics[width=1.6\textwidth, angle=90]{build/images/der.jpeg}
+  \includegraphics[width=1.4\textwidth, angle=90]{build/images/der.jpeg}
   \caption{Diagrama de entidad-interrelación} \label{fig:der}
 \end{figure}
 
@@ -186,7 +189,7 @@ a sus distintos vehículos.
 
 \begin{itemize}
 
-  \item \textbf{\uline{DNI}} Clave que identifica a un cliente.
+  \item \textbf{DNI} Clave que identifica a un cliente.
   
   \item \textbf{Apellidos} Apellidos del cliente.
 
@@ -196,14 +199,18 @@ a sus distintos vehículos.
   
 \end{itemize}
 
+\subsection{SolicitaCotización}
+
+Relaciona los clientes con las distintas cotizaciones solicitadas.
+
 \subsection{Cotización}
 
-Representa las distintas formas de asegurar un vehículo que  que los clientes recibirán para poder asegurar
+Representa las distintas formas de asegurar un vehículo que los clientes recibirán para poder asegurar
 un vehículo.
 
 \begin{itemize}
 
-  \item \textbf{\uline{NroCotizacion}} Número único e identificatorio de cada cotización.
+  \item \textbf{NroCotizacion} Número único e identificatorio de cada cotización.
   
   \item \textbf{TipoVehiculo} Almacena el tipo de vehículo para el cual la cotización ha sido generada.
 
@@ -215,15 +222,19 @@ un vehículo.
       
 \end{itemize}
 
+\subsection{PoseeCuota}
+
+Interrelación entre las cotizaciones y cada cuota de su plan de pago.
+
 \subsection{Cuota}
 
 Indica las distintas cuotas que se deben pagar para la cotización en caso de contratarla.
 
 \begin{itemize}
 
-  \item \textbf{\dashuline{NroCuota}} Número de cuota del pago.
+  \item \textbf{NroCuota} Número de cuota del pago.
     
-  \item \textbf{\uline{IdCotizacion}} Número único e identificatorio de cada cotización.
+  \item \textbf{IdCotizacion} Número único e identificatorio de cada cotización.
   
   \item \textbf{Monto} Suma de dinero que se deberá pagar en una determinada cuota.
 
@@ -231,15 +242,27 @@ Indica las distintas cuotas que se deben pagar para la cotización en caso de co
 
 \end{itemize}
 
+\subsection{TienePoliza}
+
+Relación entre cada cliente y sus pólizas solicitadas.
+
+\subsection{TieneCotización}
+
+Une a las distintas pólizas con su cotización correspondiente.
+
 \subsection{Póliza}
 
 Los distintos seguros que contrató cada cliente.
 
 \begin{itemize}
    
-  \item \textbf{\uline{NroPoliza}} Número único e identificatorio de cada póliza.
+  \item \textbf{NroPoliza} Número único e identificatorio de cada póliza.
       
 \end{itemize}
+
+\subsection{GeneraCotizacion}
+
+Nos permite obtener las cotizaciones generadas por cada sucursal.
 
 \subsection{Sucursal}
 
@@ -247,11 +270,15 @@ Las distintas sucursales en las que los clientes podrán solicitar cotizaciones 
 
 \begin{itemize}
    
-  \item \textbf{\uline{NroSucursal}} Número que identifica a una sucursal.
+  \item \textbf{NroSucursal} Número que identifica a una sucursal.
   
   \item \textbf{Nombre} Nombre de la sucursal.
   
 \end{itemize}
+
+\subsection{TrabajaEn}
+
+Relaciona a cada empleada con la sucursal en la cual trabaja.
 
 \subsection{Empleado}
 
@@ -260,7 +287,7 @@ a los distintos clientes.
 
 \begin{itemize}
    
-  \item \textbf{\uline{Legajo}} Número interno que representa a cada empleado.
+  \item \textbf{Legajo} Número interno que representa a cada empleado.
   
   \item \textbf{DNI} Documento de indentidad del empleado.
   
@@ -270,38 +297,54 @@ a los distintos clientes.
   
 \end{itemize}
 
-\subsection{Rol}
+%\subsection{Rol}
 
-Representa los distintos puestos de trabajo en el que un empleado puede trabajar.
+%Representa los distintos puestos de trabajo en el que un empleado puede trabajar.
 
-\begin{itemize}
+%\begin{itemize}
    
-  \item \textbf{\uline{NroRol}} Número identificatorio de cada rol.
+%  \item \textbf{\uline{NroRol}} Número identificatorio de cada rol.
   
-  \item \textbf{Nombre} Nombre descriptivo del rol.
+%  \item \textbf{Nombre} Nombre descriptivo del rol.
   
-\end{itemize}
+%\end{itemize}
 
-\subsubsection{Mesa de entradas}
+\subsection{Mesa de entradas}
 
 Representa a los empleados que recibirán las solicitudes para asegurar.
 
-\subsubsection{Ejecutivo de cuenta}
+\subsection{Ejecutivo de cuenta}
 
 Empleados que analizarán en casos especiales las cotizaciones.
 
-\subsubsection{Productor}
+\subsection{Analiza}
+
+Relaciona las distintas cotizaciones con quien la analizó o no.
+
+\subsection{Productor}
 
 Empleados que procesarán las distintas cotizaciones.
 
-\subsubsection{Gerencia}
+\subsection{Procesa}
+
+Almacena qué empleados procesaron cada cotización.
+
+\subsection{Gerencia}
 
 Empleados que autorizarán las distintas cotizaciones.
 
-\subsubsection{Inspector}
+\subsection{Autoriza}
+
+Relaciona las distintas cotizaciones con el o los empleados que la han autorizado.
+
+\subsection{Inspector}
 
 Empleados que realizarán inspecciones para determinar 
 la aprobación o no de las cotizaciones.
+
+\subsection{Realiza}
+
+Relación que nos permitirá saber qué inspector realizó cada inspección.
 
 \subsection{Inspección}
 
@@ -310,9 +353,9 @@ Cada inspección conecta a una cotización con el inspector que la inspeccionó.
 
 \begin{itemize}
    
-  \item \textbf{\uline{NroInspeccion}} Número de inspección que realiza un inspector dado a una cotización.
+  \item \textbf{NroInspeccion} Número de inspección que realiza un inspector dado a una cotización.
   
-  \item \textbf{\dashuline{IdCotizacion}} Id de la cotización para la que se realiza dicha inspección.
+  \item \textbf{IdCotizacion} Id de la cotización para la que se realiza dicha inspección.
     
   \item \textbf{Descripcion} Mensaje indicando las observaciones de la inspección.
 
@@ -320,17 +363,25 @@ Cada inspección conecta a una cotización con el inspector que la inspeccionó.
     
 \end{itemize}
 
+\subsection{Aprueba}
+
+Nos permité conocer en qué inspección ha sido aprobada cierta cotización.
+
 \subsection{Zona}
 
 Son las distintas zonas que cubrirán los ejecutivos de cuenta.
 
 \begin{itemize}
    
-  \item \textbf{\uline{IdZona}} Número identificatorio de cada zona.
+  \item \textbf{IdZona} Número identificatorio de cada zona.
   
   \item \textbf{Nombre} Nombre descriptivo de la zona.
   
 \end{itemize}
+
+\subsection{CubreZona}
+
+Qué zona cubre cada ejecutivo de cuentas.
 
 \subsection{Rubro}
 
@@ -345,6 +396,14 @@ Representa las distintas categorías a la cual una cotización puede pertenecer.
   \item \textbf{Descripcion} Texto descriptivo del rubro.
   
 \end{itemize}
+
+\subsection{Corresponde}
+
+Relaciona las cotizaciones con el rubro al cual pertenecen.
+
+\subsection{Cubre}
+
+Guardará qué rubros estarán contemplados en cada cobertura.
 
 \subsection{Cobertura}
 
@@ -364,6 +423,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
   
 \end{itemize}
 
+\subsection{PoseeCobertura}
+
+Almacenará las coberturas que tendrán las distintas cotizaciones.
+
+
 \section{Modelo relacional}
 
 \subsection{Claves candidatas}
@@ -372,11 +436,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroCuota, nroCotizacion, fechaVencimiento, Monto
+	\item \textbf{Atributos:} \{nroCuota, nroCotizacion, fechaVencimiento, Monto\}
 
-	\item \textbf{Clave Primaria:} nroCuota, nroCotizacion
+	\item \textbf{Clave Primaria:} \{nroCuota, nroCotizacion\}
 
-	\item \textbf{Claves Foráneas:} nroCotizacion
+	\item \textbf{Claves Foráneas:} \{nroCotizacion\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -386,9 +450,9 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} DNI, Apellido, Nombre, Domicilio
+	\item \textbf{Atributos:} \{DNI, Apellido, Nombre, Domicilio\}
 
-	\item \textbf{Clave Primaria:} DNI
+	\item \textbf{Clave Primaria:} \{DNI\}
 
 	\item \textbf{Claves Foráneas:} -
 
@@ -400,11 +464,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroPoliza, nroCotizacion, DNI, fechaEmision, fechaVigencia
+	\item \textbf{Atributos:} \{nroPoliza, nroCotizacion, DNI, fechaEmision, fechaVigencia\}
 
-	\item \textbf{Clave Primaria:} nroPoliza
+	\item \textbf{Clave Primaria:} \{nroPoliza\}
 
-	\item \textbf{Claves Foráneas:} nroCotizacion y DNI
+	\item \textbf{Claves Foráneas:} \{nroCotizacion\}, \{DNI\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -414,11 +478,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroPoliza, nroCotizacion
+	\item \textbf{Atributos:} \{nroCobretura, nroCotizacion\}
 
-	\item \textbf{Clave Primaria:} nroPoliza, nroCotizacion
+	\item \textbf{Clave Primaria:} \{nroCobretura, nroCotizacion\}
 	
-	\item \textbf{Claves Foráneas:} nroPoliza, nroCotizacion
+	\item \textbf{Claves Foráneas:} \{nroCobertura\}, \{nroCotizacion\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -428,9 +492,9 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroCobertura, Nombre, Reaseguro, Coseguro, Descripcion
+	\item \textbf{Atributos:} \{nroCobertura, Nombre, Reaseguro, Coseguro, Descripcion\}
 
-	\item \textbf{Clave Primaria:} nroCobertura
+	\item \textbf{Clave Primaria:} \{nroCobertura\}
 	
 	\item \textbf{Claves Foráneas:} -
 
@@ -442,11 +506,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroRubro, nroCobertura
+	\item \textbf{Atributos:} \{nroRubro, nroCobertura\}
 
-	\item \textbf{Clave Primaria:} nroRubro, nroCobertura
+	\item \textbf{Clave Primaria:} \{nroRubro, nroCobertura\}
 	
-	\item \textbf{Claves Foráneas:} nroRubro, nroCobertura
+	\item \textbf{Claves Foráneas:} \{nroRubro\}, \{nroCobertura\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -457,11 +521,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroCotizacion, tipoVehiculo, cantCuotas, fechaCotizacion, fechaExpiracion, DNI, nroRubro, NroRol, nroSucursal, Aprobacion
+	\item \textbf{Atributos:} \{nroCotizacion, tipoVehiculo, cantCuotas, fechaCotizacion, fechaExpiracion, DNI, nroRubro, Legajo, nroSucursal, Aprobacion\}
 	
-	\item \textbf{Clave Primaria:} nroCotizacion
+	\item \textbf{Clave Primaria:} \{nroCotizacion\}
 	
-	\item \textbf{Claves Foráneas:} DNI, nroRubro, nroRol y nroSucursal
+	\item \textbf{Claves Foráneas:} \{DNI\}, \{nroRubro\}, \{Legajo\}, \{nroSucursal\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -471,9 +535,9 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroRubro, Nombre, Descripcion
+	\item \textbf{Atributos:} \{nroRubro, Nombre, Descripcion\}
 	
-	\item \textbf{Clave Primaria:} nroRubro
+	\item \textbf{Clave Primaria:} \{nroRubro\}
 	
 	\item \textbf{Claves Foráneas:} -
 
@@ -485,11 +549,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroCotizacion, NroRol
+	\item \textbf{Atributos:} \{nroCotizacion, Legajo\}
 	
-	\item \textbf{Clave Primaria:} nroCotizacion
+	\item \textbf{Clave Primaria:} \{nroCotizacion\}
 	
-	\item \textbf{Claves Foráneas:} nroCotizacion y NroRol
+	\item \textbf{Claves Foráneas:} \{nroCotizacion\}, \{Legajo\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -499,11 +563,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroInspeccion, Aprobado, Descripcion, NroRol, FechaInspeccion, nroCotizacion
+	\item \textbf{Atributos:} \{nroInspeccion, Aprobado, Descripcion, Legajo, FechaInspeccion, nroCotizacion\}
 	
-	\item \textbf{Clave Primaria:} nroInspeccion, nroCotizacion
+	\item \textbf{Clave Primaria:} \{nroInspeccion, nroCotizacion\}
 	
-	\item \textbf{Claves Foráneas:} NroRol y nroCotizacion
+	\item \textbf{Claves Foráneas:} \{Legajo\}, \{nroCotizacion\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -513,9 +577,9 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} NroZona, Nombre
+	\item \textbf{Atributos:} \{NroZona, Nombre\}
 	
-	\item \textbf{Clave Primaria:} NroZona
+	\item \textbf{Clave Primaria:} \{NroZona\}
 	
 	\item \textbf{Claves Foráneas:} -
 
@@ -527,9 +591,9 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroSucursal, Nombre
+	\item \textbf{Atributos:} \{nroSucursal, Nombre\}
 	
-	\item \textbf{Clave Primaria:} nroSucursal
+	\item \textbf{Clave Primaria:} \{nroSucursal\}
 	
 	\item \textbf{Claves Foráneas:} -
 
@@ -541,11 +605,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} Legajo, DNI, Apellido, Nombre, nroSucursal, NroRol
+	\item \textbf{Atributos:} \{Legajo, DNI, Apellido, Nombre, nroSucursal\}
 	
-	\item \textbf{Clave Primaria:} Legajo
+	\item \textbf{Clave Primaria:} \{Legajo\}
 	
-	\item \textbf{Claves Foráneas:} DNI, nroSucursal, NroRol
+	\item \textbf{Claves Foráneas:} \{nroSucursal\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -555,39 +619,39 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} nroCotizacion, NroRol
+	\item \textbf{Atributos:} \{nroCotizacion, Legajo\}
 	
-	\item \textbf{Clave Primaria:} nroCotizacion
+	\item \textbf{Clave Primaria:} \{nroCotizacion\}
 	
-	\item \textbf{Claves Foráneas:} nroCotizacion, NroRol
-	
-	\item \textbf{Atributos que pueden ser nulos:} -
-	
-\end{itemize}
-
-\subsubsection{Rol}
-
-\begin{itemize}
-
-	\item \textbf{Atributos:} NroRol
-	
-	\item \textbf{Clave Primaria:} NroRol
-	
-	\item \textbf{Claves Foráneas:} -
+	\item \textbf{Claves Foráneas:} \{nroCotizacion\}, \{Legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
 \end{itemize}
+
+%\subsubsection{Rol}
+
+%\begin{itemize}
+
+%	\item \textbf{Atributos:} NroRol
+	
+%	\item \textbf{Clave Primaria:} NroRol
+	
+%	\item \textbf{Claves Foráneas:} -
+	
+%	\item \textbf{Atributos que pueden ser nulos:} -
+	
+%\end{itemize}
 
 \subsubsection{Ejecutivo cuentas}
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} NroRol, NroZona
+	\item \textbf{Atributos:} \{Legajo, NroZona\}
 	
-	\item \textbf{Clave Primaria:} NroRol
+	\item \textbf{Clave Primaria:} \{Legajo\}
 	
-	\item \textbf{Claves Foráneas:} NroRol, NroZona
+	\item \textbf{Claves Foráneas:} \{Legajo\}, \{NroZona\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -597,11 +661,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} NroRol
+	\item \textbf{Atributos:} \{Legajo\}
 	
-	\item \textbf{Clave Primaria:} NroRol
+	\item \textbf{Clave Primaria:} \{Legajo\}
 	
-	\item \textbf{Claves Foráneas:} NroRol
+	\item \textbf{Claves Foráneas:} \{Legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -611,11 +675,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} NroRol
+	\item \textbf{Atributos:} \{Legajo\}
 	
-	\item \textbf{Clave Primaria:} NroRol
+	\item \textbf{Clave Primaria:} \{Legajo\}
 	
-	\item \textbf{Claves Foráneas:} NroRol
+	\item \textbf{Claves Foráneas:} \{Legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -625,11 +689,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} NroRol
+	\item \textbf{Atributos:} \{Legajo\}
 	
-	\item \textbf{Clave Primaria:} NroRol
+	\item \textbf{Clave Primaria:} \{Legajo\}
 	
-	\item \textbf{Claves Foráneas:} NroRol
+	\item \textbf{Claves Foráneas:} \{Legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -639,11 +703,11 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} NroRol
+	\item \textbf{Atributos:} \{Legajo\}
 	
-	\item \textbf{Clave Primaria:} NroRol
+	\item \textbf{Clave Primaria:} \{Legajo\}
 	
-	\item \textbf{Claves Foráneas:} NroRol
+	\item \textbf{Claves Foráneas:} \{Legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -657,7 +721,7 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{figure}[h!t]
 	\centering
-	\includegraphics[width=1.3\textwidth, angle=0]{build/images/rel.jpg}
+	\includegraphics[width=1.1\textwidth, angle=0]{build/images/rel.jpg}
 	\caption{Modelo relacional} \label{fig:relacional}
 \end{figure}
 
