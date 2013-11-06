@@ -189,13 +189,13 @@ a sus distintos vehículos.
 
 \begin{itemize}
 
-  \item \textbf{DNI} Clave que identifica a un cliente.
+  \item \textbf{dni} Clave que identifica a un cliente.
   
-  \item \textbf{Apellido} Apellidos del cliente.
+  \item \textbf{apellido} Apellidos del cliente.
 
-  \item \textbf{Nombre} Nombres del cliente.
+  \item \textbf{nombre} Nombres del cliente.
   
-  \item \textbf{Domicilio} Lugar donde reside el cliente.
+  \item \textbf{domicilio} Lugar donde reside el cliente.
   
 \end{itemize}
 
@@ -210,15 +210,15 @@ un vehículo.
 
 \begin{itemize}
 
-  \item \textbf{NroCotizacion} Número único e identificatorio de cada cotización.
+  \item \textbf{nroCotizacion} Número único e identificatorio de cada cotización.
   
-  \item \textbf{TipoVehiculo} Almacena el tipo de vehículo para el cual la cotización ha sido generada.
+  \item \textbf{tipoVehiculo} Almacena el tipo de vehículo para el cual la cotización ha sido generada.
 
-  \item \textbf{FechaExpiracion} Fecha en la cual deja de tener validez ésta cotización.
+  \item \textbf{fechaExpiracion} Fecha en la cual deja de tener validez ésta cotización.
   
-  \item \textbf{CantCuota} Cantidad de cuotas.
+  \item \textbf{cantCuota} Cantidad de cuotas.
 
-  \item \textbf{FechaCotizacion} Fecha en la cual se ha realizado la cotización.
+  \item \textbf{fechaCotizacion} Fecha en la cual se ha realizado la cotización.
       
 \end{itemize}
 
@@ -232,13 +232,13 @@ Indica las distintas cuotas que se deben pagar para la cotización en caso de co
 
 \begin{itemize}
 
-  \item \textbf{NroCuota} Número de cuota del pago.
+  \item \textbf{nroCuota} Número de cuota del pago.
     
-  \item \textbf{IdCotizacion} Número único e identificatorio de cada cotización.
+  \item \textbf{idCotizacion} Número único e identificatorio de cada cotización.
   
-  \item \textbf{Monto} Suma de dinero que se deberá pagar en una determinada cuota.
+  \item \textbf{monto} Suma de dinero que se deberá pagar en una determinada cuota.
 
-  \item \textbf{FechaVencimiento} Fecha hasta la cual dse puede realizar el pago.
+  \item \textbf{fechaVencimiento} Fecha hasta la cual dse puede realizar el pago.
 
 \end{itemize}
 
@@ -256,7 +256,7 @@ Los distintos seguros que contrató cada cliente.
 
 \begin{itemize}
    
-  \item \textbf{NroPoliza} Número único e identificatorio de cada póliza.
+  \item \textbf{nroPoliza} Número único e identificatorio de cada póliza.
       
 \end{itemize}
 
@@ -270,9 +270,9 @@ Las distintas sucursales en las que los clientes podrán solicitar cotizaciones 
 
 \begin{itemize}
    
-  \item \textbf{NroSucursal} Número que identifica a una sucursal.
+  \item \textbf{nroSucursal} Número que identifica a una sucursal.
   
-  \item \textbf{Nombre} Nombre de la sucursal.
+  \item \textbf{nombre} Nombre de la sucursal.
   
 \end{itemize}
 
@@ -287,13 +287,13 @@ a los distintos clientes.
 
 \begin{itemize}
    
-  \item \textbf{Legajo} Número interno que representa a cada empleado.
+  \item \textbf{legajo} Número interno que representa a cada empleado.
   
-  \item \textbf{DNI} Documento de indentidad del empleado.
+  \item \textbf{dni} Documento de indentidad del empleado.
   
-  \item \textbf{Nombre} Nombre del empleado.
+  \item \textbf{nombre} Nombre del empleado.
   
-  \item \textbf{Apellido} Apellidos del empleado.
+  \item \textbf{apellido} Apellidos del empleado.
   
 \end{itemize}
 
@@ -353,13 +353,13 @@ Cada inspección conecta a una cotización con el inspector que la inspeccionó.
 
 \begin{itemize}
    
-  \item \textbf{NroInspeccion} Número de inspección que realiza un inspector dado a una cotización.
+  \item \textbf{nroInspeccion} Número de inspección que realiza un inspector dado a una cotización.
   
-  \item \textbf{IdCotizacion} Id de la cotización para la que se realiza dicha inspección.
+  \item \textbf{idCotizacion} Id de la cotización para la que se realiza dicha inspección.
     
-  \item \textbf{Descripcion} Mensaje indicando las observaciones de la inspección.
+  \item \textbf{descripcion} Mensaje indicando las observaciones de la inspección.
 
-  \item \textbf{Aprobado} Indica si fue aprobada la cotización.
+  \item \textbf{aprobado} Indica si fue aprobada la cotización.
     
 \end{itemize}
 
@@ -373,9 +373,9 @@ Son las distintas zonas que cubrirán los ejecutivos de cuenta.
 
 \begin{itemize}
    
-  \item \textbf{IdZona} Número identificatorio de cada zona.
+  \item \textbf{idZona} Número identificatorio de cada zona.
   
-  \item \textbf{Nombre} Nombre descriptivo de la zona.
+  \item \textbf{nombre} Nombre descriptivo de la zona.
   
 \end{itemize}
 
@@ -389,11 +389,11 @@ Representa las distintas categorías a la cual una cotización puede pertenecer.
 
 \begin{itemize}
    
-  \item \textbf{\uline{NroRubro}} Número identificatorio de cada rubro.
+  \item \textbf{nroRubro} Número identificatorio de cada rubro.
   
-  \item \textbf{Nombre} Nombre del rubro.
+  \item \textbf{nombre} Nombre del rubro.
 
-  \item \textbf{Descripcion} Texto descriptivo del rubro.
+  \item \textbf{descripcion} Texto descriptivo del rubro.
   
 \end{itemize}
 
@@ -411,15 +411,15 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
    
-  \item \textbf{NroCobertura} Número identificatorio de cada cobertura.
+  \item \textbf{nroCobertura} Número identificatorio de cada cobertura.
   
-  \item \textbf{Nombre} Nombre de la cobertura.
+  \item \textbf{nombre} Nombre de la cobertura.
 
-  \item \textbf{Descripcion} Texto descriptivo de la cobertura.
+  \item \textbf{descripcion} Texto descriptivo de la cobertura.
   
-  \item \textbf{Reaseguro} Nombre de la compañía extranjera reaseguradora
+  \item \textbf{reaseguro} Nombre de la compañía extranjera reaseguradora
 
-  \item \textbf{Coaseguro} Almacena si la cobertura tiene coaseguro con la empresa Aliance S.A.
+  \item \textbf{coaseguro} Almacena si la cobertura tiene coaseguro con la empresa Aliance S.A.
   
 \end{itemize}
 
@@ -436,7 +436,7 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{nroCuota, nroCotizacion, fechaVencimiento, Monto\}
+	\item \textbf{Atributos:} \{nroCuota, nroCotizacion, fechaVencimiento, monto\}
 
 	\item \textbf{Clave Primaria:} \{nroCuota, nroCotizacion\}
 
@@ -450,9 +450,9 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{DNI, Apellido, Nombre, Domicilio\}
+	\item \textbf{Atributos:} \{dni, apellido, nombre, domicilio\}
 
-	\item \textbf{Clave Primaria:} \{DNI\}
+	\item \textbf{Clave Primaria:} \{dni\}
 
 	\item \textbf{Claves Foráneas:} -
 
@@ -464,11 +464,11 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{nroPoliza, nroCotizacion, DNI, fechaEmision, fechaVigencia\}
+	\item \textbf{Atributos:} \{nroPoliza, nroCotizacion, dni, fechaEmision, fechaVigencia\}
 
 	\item \textbf{Clave Primaria:} \{nroPoliza\}
 
-	\item \textbf{Claves Foráneas:} \{nroCotizacion\}, \{DNI\}
+	\item \textbf{Claves Foráneas:} \{nroCotizacion\}, \{dni\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -492,13 +492,13 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{nroCobertura, Nombre, Reaseguro, Coseguro, Descripcion\}
+	\item \textbf{Atributos:} \{nroCobertura, nombre, reaseguro, coseguro, descripcion\}
 
 	\item \textbf{Clave Primaria:} \{nroCobertura\}
 	
 	\item \textbf{Claves Foráneas:} -
 
-	\item \textbf{Atributos que pueden ser nulos:} -
+	\item \textbf{Atributos que pueden ser nulos:} \{reaseguro, coseguro, descripcion\} 
 	
 \end{itemize}
 
@@ -521,11 +521,11 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{nroCotizacion, tipoVehiculo, cantCuotas, fechaCotizacion, fechaExpiracion, DNI, nroRubro, Legajo, nroSucursal, Aprobacion\}
+	\item \textbf{Atributos:} \{nroCotizacion, tipoVehiculo, cantCuotas, fechaCotizacion, fechaExpiracion, dni, nroRubro, legajo, nroSucursal, aprobacion\}
 	
 	\item \textbf{Clave Primaria:} \{nroCotizacion\}
 	
-	\item \textbf{Claves Foráneas:} \{DNI\}, \{nroRubro\}, \{Legajo\}, \{nroSucursal\}
+	\item \textbf{Claves Foráneas:} \{dni\}, \{nroRubro\}, \{legajo\}, \{nroSucursal\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -535,13 +535,13 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{nroRubro, Nombre, Descripcion\}
+	\item \textbf{Atributos:} \{nroRubro, nombre, descripcion\}
 	
 	\item \textbf{Clave Primaria:} \{nroRubro\}
 	
 	\item \textbf{Claves Foráneas:} -
 
-	\item \textbf{Atributos que pueden ser nulos:} -
+	\item \textbf{Atributos que pueden ser nulos:} \{descripcion\}
 	
 \end{itemize}
 
@@ -549,11 +549,11 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{nroCotizacion, Legajo\}
+	\item \textbf{Atributos:} \{nroCotizacion, legajo\}
 	
 	\item \textbf{Clave Primaria:} \{nroCotizacion\}
 	
-	\item \textbf{Claves Foráneas:} \{nroCotizacion\}, \{Legajo\}
+	\item \textbf{Claves Foráneas:} \{nroCotizacion\}, \{legajo\}
 
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -563,13 +563,13 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{nroInspeccion, Aprobado, Descripcion, Legajo, FechaInspeccion, nroCotizacion\}
+	\item \textbf{Atributos:} \{nroInspeccion, aprobado, descripcion, legajo, fechaInspeccion, nroCotizacion\}
 	
 	\item \textbf{Clave Primaria:} \{nroInspeccion, nroCotizacion\}
 	
-	\item \textbf{Claves Foráneas:} \{Legajo\}, \{nroCotizacion\}
+	\item \textbf{Claves Foráneas:} \{legajo\}, \{nroCotizacion\}
 
-	\item \textbf{Atributos que pueden ser nulos:} -
+	\item \textbf{Atributos que pueden ser nulos:} \{descripcion\}
 	
 \end{itemize}
 
@@ -577,9 +577,9 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{NroZona, Nombre\}
+	\item \textbf{Atributos:} \{nroZona, nombre\}
 	
-	\item \textbf{Clave Primaria:} \{NroZona\}
+	\item \textbf{Clave Primaria:} \{nroZona\}
 	
 	\item \textbf{Claves Foráneas:} -
 
@@ -591,7 +591,7 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{nroSucursal, Nombre\}
+	\item \textbf{Atributos:} \{nroSucursal, nombre\}
 	
 	\item \textbf{Clave Primaria:} \{nroSucursal\}
 	
@@ -605,9 +605,9 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{Legajo, DNI, Apellido, Nombre, nroSucursal\}
+	\item \textbf{Atributos:} \{legajo, dni, apellido, nombre, nroSucursal\}
 	
-	\item \textbf{Clave Primaria:} \{Legajo\}
+	\item \textbf{Clave Primaria:} \{legajo\}
 	
 	\item \textbf{Claves Foráneas:} \{nroSucursal\}
 
@@ -619,11 +619,11 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{nroCotizacion, Legajo\}
+	\item \textbf{Atributos:} \{nroCotizacion, legajo\}
 	
 	\item \textbf{Clave Primaria:} \{nroCotizacion\}
 	
-	\item \textbf{Claves Foráneas:} \{nroCotizacion\}, \{Legajo\}
+	\item \textbf{Claves Foráneas:} \{nroCotizacion\}, \{legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -647,11 +647,11 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{Legajo, NroZona\}
+	\item \textbf{Atributos:} \{legajo, nroZona\}
 	
-	\item \textbf{Clave Primaria:} \{Legajo\}
+	\item \textbf{Clave Primaria:} \{legajo\}
 	
-	\item \textbf{Claves Foráneas:} \{Legajo\}, \{NroZona\}
+	\item \textbf{Claves Foráneas:} \{legajo\}, \{nroZona\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -661,11 +661,11 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{Legajo\}
+	\item \textbf{Atributos:} \{legajo\}
 	
-	\item \textbf{Clave Primaria:} \{Legajo\}
+	\item \textbf{Clave Primaria:} \{legajo\}
 	
-	\item \textbf{Claves Foráneas:} \{Legajo\}
+	\item \textbf{Claves Foráneas:} \{legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -675,11 +675,11 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{Legajo\}
+	\item \textbf{Atributos:} \{legajo\}
 	
-	\item \textbf{Clave Primaria:} \{Legajo\}
+	\item \textbf{Clave Primaria:} \{legajo\}
 	
-	\item \textbf{Claves Foráneas:} \{Legajo\}
+	\item \textbf{Claves Foráneas:} \{legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -689,11 +689,11 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{Legajo\}
+	\item \textbf{Atributos:} \{legajo\}
 	
-	\item \textbf{Clave Primaria:} \{Legajo\}
+	\item \textbf{Clave Primaria:} \{legajo\}
 	
-	\item \textbf{Claves Foráneas:} \{Legajo\}
+	\item \textbf{Claves Foráneas:} \{legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
@@ -703,11 +703,11 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 
 \begin{itemize}
 
-	\item \textbf{Atributos:} \{Legajo\}
+	\item \textbf{Atributos:} \{legajo\}
 	
-	\item \textbf{Clave Primaria:} \{Legajo\}
+	\item \textbf{Clave Primaria:} \{legajo\}
 	
-	\item \textbf{Claves Foráneas:} \{Legajo\}
+	\item \textbf{Claves Foráneas:} \{legajo\}
 	
 	\item \textbf{Atributos que pueden ser nulos:} -
 	
