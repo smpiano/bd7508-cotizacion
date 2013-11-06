@@ -15,7 +15,8 @@ build/images/der.jpeg: doc/diagramas/der.dia
 
 build/images/rel.jpg: #build docs/diagramas/rel.dia
 	#dia --export=build/images/rel.jpg --filter=jpg doc/diagramas/rel.dia
-	cp doc/diagramas/rel.jpg build/images/
+	#cp doc/diagramas/rel.jpg build/images/
+	cp doc/diagramas/rel2.png build/images/
 
 clean:
 	rm -rf build
@@ -23,6 +24,7 @@ clean:
 
 doc-preview: doc build/informe.pdf
 #	./scripts/preview build/informe.pdf &
-	cp build/informe.pdf . 
+	cp build/informe.pdf .
+	evince informe.pdf &
 
 .PHONY: doc/diagramas/der.dia
