@@ -187,7 +187,7 @@ a sus distintos vehículos.
 
 \begin{itemize}
 
-  \item \textbf{dni} Clave que identifica a un cliente.
+  \item \textbf{\uline{dni}} Clave que identifica a un cliente.
   
   \item \textbf{apellido} Apellidos del cliente.
 
@@ -212,7 +212,7 @@ un vehículo.
 
 \begin{itemize}
 
-  \item \textbf{nroCotizacion} Número único e identificatorio de cada cotización.
+  \item \textbf{\uline{nroCotizacion}} Número único e identificatorio de cada cotización.
   
   \item \textbf{tipoVehiculo} Almacena el tipo de vehículo para el cual la cotización ha sido generada.
 
@@ -234,9 +234,9 @@ Indica las distintas cuotas que se deben pagar para la cotización en caso de co
 
 \begin{itemize}
 
-  \item \textbf{nroCuota} Número de cuota del pago.
+  \item \textbf{\dashuline{nroCuota}} Número de cuota del pago.
     
-  \item \textbf{idCotizacion} Número único e identificatorio de cada cotización.
+  \item \textbf{\uline{idCotizacion}} Número único e identificatorio de cada cotización.
   
   \item \textbf{monto} Suma de dinero que se deberá pagar en una determinada cuota.
 
@@ -258,7 +258,9 @@ Los distintos seguros que contrató cada cliente.
 
 \begin{itemize}
    
-  \item \textbf{nroPoliza} Número único e identificatorio de cada póliza.
+  \item \textbf{\uline{nroPoliza}} Número único e identificatorio de cada póliza.
+  	
+  \item \textbf{fechaEmision} Indica la fecha en la cuál empieza a tomar vigencia la póliza.
       
 \end{itemize}
 
@@ -272,7 +274,7 @@ Las distintas sucursales en las que los clientes podrán solicitar cotizaciones 
 
 \begin{itemize}
    
-  \item \textbf{nroSucursal} Número que identifica a una sucursal.
+  \item \textbf{\uline{nroSucursal}} Número que identifica a una sucursal.
   
   \item \textbf{nombre} Nombre de la sucursal.
   
@@ -289,7 +291,7 @@ a los distintos clientes.
 
 \begin{itemize}
    
-  \item \textbf{legajo} Número interno que representa a cada empleado.
+  \item \textbf{\uline{legajo}} Número interno que representa a cada empleado.
   
   \item \textbf{dni} Documento de indentidad del empleado.
   
@@ -355,9 +357,9 @@ Cada inspección conecta a una cotización con el inspector que la inspeccionó.
 
 \begin{itemize}
    
-  \item \textbf{nroInspeccion} Número de inspección que realiza un inspector dado a una cotización.
+  \item \textbf{\dashuline{nroInspeccion}} Número de inspección que realiza un inspector dado a una cotización.
   
-  \item \textbf{idCotizacion} Id de la cotización para la que se realiza dicha inspección.
+  \item \textbf{\uline{idCotizacion}} Id de la cotización para la que se realiza dicha inspección.
     
   \item \textbf{descripcion} Mensaje indicando las observaciones de la inspección.
 
@@ -375,7 +377,7 @@ Son las distintas zonas que cubrirán los ejecutivos de cuenta.
 
 \begin{itemize}
    
-  \item \textbf{idZona} Número identificatorio de cada zona.
+  \item \textbf{\uline{idZona}} Número identificatorio de cada zona.
   
   \item \textbf{nombre} Nombre descriptivo de la zona.
   
@@ -391,7 +393,7 @@ Representa las distintas categorías a la cual una cotización puede pertenecer.
 
 \begin{itemize}
    
-  \item \textbf{nroRubro} Número identificatorio de cada rubro.
+  \item \textbf{\uline{nroRubro}} Número identificatorio de cada rubro.
   
   \item \textbf{nombre} Nombre del rubro.
 
@@ -413,7 +415,7 @@ Son los riesgos que están cubiertos en una póliza según el rubro que correspo
 
 \begin{itemize}
    
-  \item \textbf{nroCobertura} Número identificatorio de cada cobertura.
+  \item \textbf{\uline{nroCobertura}} Número identificatorio de cada cobertura.
   
   \item \textbf{nombre} Nombre de la cobertura.
 
@@ -500,7 +502,7 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 	
 	\item \textbf{Claves Foráneas:} -
 
-	\item \textbf{Atributos que pueden ser nulos:} \{reaseguro, coseguro, descripcion\} 
+	\item \textbf{Atributos que pueden ser nulos:} \{reaseguro, coseguro\} 
 	
 \end{itemize}
 
@@ -543,7 +545,7 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 	
 	\item \textbf{Claves Foráneas:} -
 
-	\item \textbf{Atributos que pueden ser nulos:} \{descripcion\}
+	\item \textbf{Atributos que pueden ser nulos:} -
 	
 \end{itemize}
 
@@ -571,7 +573,7 @@ Almacenará las coberturas que tendrán las distintas cotizaciones.
 	
 	\item \textbf{Claves Foráneas:} \{legajo\}, \{nroCotizacion\}
 
-	\item \textbf{Atributos que pueden ser nulos:} \{descripcion\}
+	\item \textbf{Atributos que pueden ser nulos:} -
 	
 \end{itemize}
 
