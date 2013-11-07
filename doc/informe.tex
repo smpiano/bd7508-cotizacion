@@ -165,18 +165,31 @@
 \FloatBarrier
 
 
-%\subsection{Restricciones adicionales}
+\subsection{Dependencias de identidad y de existencia}
 
-% Las siguientes restricciones adicionales se detallan a continuación por
-% pertenecer al modelo de entidad-interrelación. No están representadas en el
-% diagrama dado que su inclusión agregaba complejidad adicional sobre en la
-% figura que consideramos innecesaria.
+\begin{itemize}
 
-%\begin{enumerate}
-
-%  \item 
+  \item \textbf{Cotizacion - Sucursal}	Dependencia de existencia	
   
-%\end{enumerate}
+  \item \textbf{Cotizacion - Cliente}	Dependencia de existencia	
+
+  \item \textbf{Cotizacion - Rubro}	Dependencia de existencia	
+
+  \item \textbf{Cuotas - Cotizacion}	Dependencia de existencia e identidad
+
+  \item \textbf{Empleado - Sucursal}	Dependencia de existencia	
+
+  \item \textbf{Inspeccion - Inspector}	Dependencia de existencia	
+
+  \item \textbf{Inspeccion - Cotizacion}	Dependencia de existencia e identidad 
+
+  \item \textbf{Poliza - Cliente}	Dependencia de existencia	
+
+  \item \textbf{Poliza - Cotizacion}	Dependencia de existencia	
+
+  \item \textbf{Productor - Cotizacion}	Dependencia de existencia	
+
+\end{itemize}
 
 \section{Diccionario de datos}
 
